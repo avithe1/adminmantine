@@ -7,4 +7,7 @@ module.exports = withBundleAnalyzer({
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['openweathermap.org', 'wikimedia.org', 'assets.website-files.com', 'www.mastercard.com.hk'],
+  },
 });
