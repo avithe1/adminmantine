@@ -12,6 +12,9 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import CHeader from '../demo/Header';
+import CSidebar from '../demo/CSidebar';
+import CDashboard from '../demo/CDashboard';
+import CPanel from '../demo/CPanel';
 
 export default function Admin() {
   const theme = useMantineTheme();
@@ -20,27 +23,38 @@ export default function Admin() {
     <AppShell
       styles={{
         main: {
-          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+          //background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : '#f4f5fe',
         },
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
       fixed
       navbar={
-        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Text>Application navbar</Text>
+        <Navbar hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 80, lg: 80 }} styles={{
+          root: {
+            //background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+            background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : '#ecedf6;',
+          },
+        }}>
+          <CSidebar />
         </Navbar>
       }
       aside={
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text>Application sidebar</Text>
+          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }} styles={{
+            root: {
+              //background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+              background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : '#ecedf6;',
+            },
+          }}>
+            <CPanel />
           </Aside>
         </MediaQuery>
       }
       footer={
         <Footer height={60} p="md">
-          Application footer
+          &#169; Avinash 2022
         </Footer>
       }
       header={
@@ -64,7 +78,7 @@ export default function Admin() {
         </Header>
       }
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+      <CDashboard />
     </AppShell>
   );
 }
